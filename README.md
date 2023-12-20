@@ -33,3 +33,16 @@ add "/api/webhooks/(.\*)" to the public routes in the middleware file
 fire a testing event from clerk to test the webhook
 
 modify the webhook to create,update,delete a user model in the db every time an event is done by clerk
+
+# QueryString
+
+A Library used to generate a url with a query string in the search component
+
+# Zustand
+
+a state-management library, used to create the store which will take care whether the wrapper component in the sidebar is collapsed or not
+
+# usehooks-ts
+
+useMediaQuery is used to know whether we reached the lg breakpoint in the container component that wraps the homepage, to make changes when reaching it
+it returns a boolean when matching a query provided to it
