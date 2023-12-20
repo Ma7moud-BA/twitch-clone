@@ -46,3 +46,7 @@ a state-management library, used to create the store which will take care whethe
 
 useMediaQuery is used to know whether we reached the lg breakpoint in the container component that wraps the homepage, to make changes when reaching it
 it returns a boolean when matching a query provided to it
+
+# Sonner
+
+Sonner is an opinionated toast component for Reac
