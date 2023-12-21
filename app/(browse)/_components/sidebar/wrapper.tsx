@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { ToggleSkeleton } from "./toggle";
 import { RecommendedSkeleton } from "./recommended";
 import { useIsClient } from "usehooks-ts";
+import { FollowingSkeleton } from "./following";
 type WrapperProps = {
 	children: React.ReactNode;
 };
@@ -26,6 +27,7 @@ const Wrapper = ({ children }: WrapperProps) => {
 		return (
 			<aside className="fixed w-[70px] lg:w-60 left-0 flex flex-col bg-background h-full border-r border-[#2D2E35] z-50">
 				<ToggleSkeleton />
+				<FollowingSkeleton />
 				<RecommendedSkeleton />
 			</aside>
 		);
