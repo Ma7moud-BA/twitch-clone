@@ -19,6 +19,16 @@ export const getRecommended = async () => {
 					{ NOT: { id: userId } },
 					//don't recommend the already followed users
 					{ NOT: { followedBy: { some: { followerId: userId } } } },
+					//don't recommend the users that are blocking the currently loggedIn user
+					{
+						NOT: {
+							blocking: {
+								some: {
+									blockedId: userId,
+								},
+							},
+						},
+					},
 				],
 			},
 			orderBy: {

@@ -93,7 +93,19 @@ export const getFollowedUsers = async () => {
 	try {
 		const self = await getSelf();
 		const followedUsers = db.follow.findMany({
-			where: { followerId: self.id },
+			where: {
+				followerId: self.id,
+				// prevent showing blockedBy users
+				// if user1 is blocking user2, user2 will not see user1 in the following section
+				following: {
+					blocking: {
+						none: {
+							blockedId: self.id,
+						},
+					},
+				},
+			},
+
 			include: {
 				following: true,
 			},
