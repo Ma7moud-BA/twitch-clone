@@ -27,7 +27,7 @@ const Hint = ({
 				{/* enable asChild when wrapping a button to overcome the hydration errors */}
 				<TooltipTrigger asChild={asChild}>{children}</TooltipTrigger>
 				<TooltipContent
-					className="text-black bg-white"
+					className="text-black bg-white font-bold"
 					sideOffset={sideOffset}
 					side={side}
 					align={align}
