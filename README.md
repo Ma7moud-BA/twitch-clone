@@ -50,3 +50,22 @@ it returns a boolean when matching a query provided to it
 # Sonner
 
 Sonner is an opinionated toast component for Reac
+
+# LiveKit
+
+i used liveKit to create an RTMP "Real-Time messaging protocol" protocol connection
+https://docs.livekit.io/egress-ingress/ingress/overview/#whip-/-rtmp
+https://docs.livekit.io/realtime/quickstarts/nextjs-13/
+https://livekit.io
+a real time video and audio for developers , its an open source
+sign in then create the app, prepare the environment variables, from the dashboard go to settings->keys, add a new key called development this will give some keys, store the api key, secret key and the websocket url key in the .env file, then go to analytics to find the api_url and add https:// to it then store it as well.
+
+## packages for livekit
+
+### @livekit/components-react
+
+gives some client hooks and components
+
+### livekit-client
+
+### livekit-server-sdk
