@@ -31,6 +31,14 @@ export const getRecommended = async () => {
 					},
 				],
 			},
+			include: {
+				stream: {
+					// this data is passed to a client component so iam only getting the isLive entity from the stream model because i don't want to pass other entities from the model in the client side
+					select: {
+						isLive: true,
+					},
+				},
+			},
 			orderBy: {
 				createdAt: "desc",
 			},
@@ -39,6 +47,14 @@ export const getRecommended = async () => {
 		users = await db.user.findMany({
 			orderBy: {
 				createdAt: "desc",
+			},
+			include: {
+				stream: {
+					// this data is passed to a client component so iam only getting the isLive entity from the stream model because i don't want to pass other entities from the model in the client side
+					select: {
+						isLive: true,
+					},
+				},
 			},
 		});
 	}

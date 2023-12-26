@@ -69,3 +69,12 @@ gives some client hooks and components
 ### livekit-client
 
 ### livekit-server-sdk
+
+#### making a livekit webhook
+
+go to livekit dashboard -> settings->webhooks-> add new endpoint
+
+name it anything, the URL is the one from ngrok, but add to it /api/webhooks/livekit. " https://manually-growing-quail.ngrok-free.app/api/webhooks/livekit"
+for the signing api key choose the one created at the first step when establishing the livekit connection it should match the one in the .env file
+
+# jwt-decode

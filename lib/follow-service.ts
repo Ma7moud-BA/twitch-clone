@@ -105,9 +105,17 @@ export const getFollowedUsers = async () => {
 					},
 				},
 			},
-
 			include: {
-				following: true,
+				following: {
+					include: {
+						stream: {
+							// this data is passed to a client component so iam only getting the isLive entity from the stream model because i don't want to pass other entities from the model in the client side
+							select: {
+								isLive: true,
+							},
+						},
+					},
+				},
 			},
 		});
 		return followedUsers;
