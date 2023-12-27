@@ -18,7 +18,6 @@ const CreatorPage = async ({ params }: CreatorPageProps) => {
 	}
 	return (
 		<div className="h-full">
-			{" "}
 			{/* since this is the creator dashboard isFollowing should always be true since the user is himself */}
 			<StreamPlayer user={user} stream={user.stream} isFollowing />
 		</div>
