@@ -4,10 +4,11 @@ import { Stream, User } from "@prisma/client";
 import { useChatSidebar } from "@/store/use-chat-sidebar";
 import { cn } from "@/lib/utils";
 import { LiveKitRoom } from "@livekit/components-react";
-import Video from "./video";
-import Chat from "./chat";
+import Video, { VideoSkeleton } from "./video";
+import Chat, { ChatSkeleton } from "./chat";
 import { Divide } from "lucide-react";
 import ChatToggle from "./chat-toggle";
+import Header, { HeaderSkeleton } from "./header";
 type StreamPlayerProps = {
 	user: User & { stream: Stream | null };
 	stream: Stream;
@@ -20,7 +21,8 @@ const StreamPlayer = ({ stream, user, isFollowing }: StreamPlayerProps) => {
 	if (!token || !name || !identity) {
 		return (
 			//todo:modify this
-			<div>Cannot watch the stream</div>
+
+			<StreamPlayerSkeleton />
 		);
 	}
 	return (
@@ -40,6 +42,14 @@ const StreamPlayer = ({ stream, user, isFollowing }: StreamPlayerProps) => {
 			>
 				<div className="space-y-4 col-span-1 lg:col-span-2 xl:col-span-2 2xl:col-span-5 lg:overflow-y-auto hidden-scrollbar  pb-10 ">
 					<Video hostName={user.username} hostIdentity={user.id}></Video>
+					<Header
+						hostName={user.username}
+						hostIdentity={user.id}
+						viewerIdentity={identity}
+						imageUrl={user.imageUrl}
+						isFollowing={isFollowing}
+						name={stream.name}
+					/>
 				</div>
 				<div className={cn("col-span-1", collapsed && "hidden")}>
 					<Chat
@@ -58,3 +68,17 @@ const StreamPlayer = ({ stream, user, isFollowing }: StreamPlayerProps) => {
 };
 
 export default StreamPlayer;
+
+export const StreamPlayerSkeleton = () => {
+	return (
+		<div className="grid grid-cols-1 lg:gap-y-0 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-6 h-full">
+			<div className="space-y-4 col-span-1 lg:col-span-2 xl:col-span-2 2xl:col-span-5 lg:overflow-y-auto hidden-scrollbar pb-10">
+				<VideoSkeleton />
+				<HeaderSkeleton />
+			</div>
+			<div className="col-span-1 bg-background">
+				<ChatSkeleton />
+			</div>
+		</div>
+	);
+};

@@ -9,6 +9,7 @@ import {
 import OfflineVideo from "./offlice-video";
 import LoadingVideo from "./loading-video";
 import LiveVideo from "./live-video";
+import { Skeleton } from "../ui/skeleton";
 type VideoProps = {
 	hostName: string;
 	hostIdentity: string;
@@ -41,3 +42,11 @@ const Video = ({ hostIdentity, hostName }: VideoProps) => {
 };
 
 export default Video;
+
+export const VideoSkeleton = () => {
+	return (
+		<div className="aspect-video border-x border-background">
+			<Skeleton className="w-full h-full rounded-none" />
+		</div>
+	);
+};
