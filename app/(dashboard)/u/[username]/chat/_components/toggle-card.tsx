@@ -17,10 +17,12 @@ const ToggleCard = ({ field, label, value }: ToggleCardProps) => {
 			// field used in square brackets because its part of the Partial<Stream> values
 			updateStream({ [field]: !value })
 				.then(() => {
-					toast.success("Chat setting updated!");
+					toast.success(
+						"Conversations kindled: Your chat settings have been updated."
+					);
 				})
 				.catch(() => {
-					toast.error("Something went wrong");
+					toast.error("Embers dim: Error encountered, please try again");
 				});
 		});
 	};

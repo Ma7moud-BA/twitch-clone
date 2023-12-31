@@ -36,11 +36,11 @@ const ConnectModal = () => {
 		startTransition(() => {
 			createIngress(parseInt(ingressType))
 				.then(() => {
-					toast.success("Ingress Created");
+					toast.success("Gateway forged: Ingress successfully created.");
 					closeRef?.current?.click();
 				})
 				.catch(() => {
-					toast.error("Something went wrong");
+					toast.error("Embers dim: Error encountered, please try again");
 				});
 		});
 	};

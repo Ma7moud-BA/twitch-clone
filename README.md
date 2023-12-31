@@ -78,3 +78,14 @@ name it anything, the URL is the one from ngrok, but add to it /api/webhooks/liv
 for the signing api key choose the one created at the first step when establishing the livekit connection it should match the one in the .env file
 
 # jwt-decode
+
+to generate a token for the viewer that watches the stream, used in hooks/use-viewer-token
+
+# upload-thing
+
+https://docs.uploadthing.com/getting-started/appdir
+used to upload the thumbnail img for the stream,
+after following the documentation and setting up the files
+api/uploadthing.ts,lib/uploadthing.ts, info-card.ts
+
+add"/api/uploadthing" to the middleware in the publicRoutes

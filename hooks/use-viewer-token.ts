@@ -31,7 +31,7 @@ export const useViewerToken = (hostIdentity: string) => {
 					setName(name);
 				}
 			} catch {
-				toast.error("Something went wrong");
+				toast.error("Embers dim: Error encountered, please try again");
 			}
 		};
 		createToken();

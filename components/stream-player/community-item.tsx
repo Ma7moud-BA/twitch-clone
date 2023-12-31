@@ -31,10 +31,12 @@ const CommunityItem = ({
 		startTransition(() => {
 			onBlock(participantIdentity)
 				.then(() => {
-					toast.success(`Blocked ${participantName}`);
+					toast.success(
+						`Sealed in the abyss: ${participantName} is not blocked`
+					);
 				})
 				.catch(() => {
-					toast.error("Something went wrong");
+					toast.error("Embers dim: Error encountered, please try again");
 				});
 		});
 	};
@@ -47,7 +49,7 @@ const CommunityItem = ({
 		>
 			<p style={{ color: color }}>{participantName}</p>
 			{isHost && !isSelf && (
-				<Hint label="Block">
+				<Hint label="Block" asChild>
 					<Button
 						variant="ghost"
 						disabled={isPending}

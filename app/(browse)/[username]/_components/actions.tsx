@@ -17,10 +17,12 @@ export const Actions = ({ isFollowing, userId, isBlocking }: ActionsProps) => {
 		startTransition(() => {
 			onFollow(userId)
 				.then((data) =>
-					toast.success(`Your are now following ${data.following.username}`)
+					toast.success(
+						`Bonds forged: Following ${data.following.username} in the firelight`
+					)
 				)
 				.catch(() => {
-					toast.error("Something went wrong");
+					toast.error("Embers dim: Error encountered, please try again");
 				});
 		});
 	};
@@ -28,10 +30,12 @@ export const Actions = ({ isFollowing, userId, isBlocking }: ActionsProps) => {
 		startTransition(() => {
 			onUnFollow(userId)
 				.then((data) =>
-					toast.success(`Your unFollowed ${data.following.username}`)
+					toast.success(
+						`Bonds severed: No longer journeying with ${data.following.username}`
+					)
 				)
 				.catch(() => {
-					toast.error("Something went wrong");
+					toast.error("Embers dim: Error encountered, please try again");
 				});
 		});
 	};
@@ -46,10 +50,12 @@ export const Actions = ({ isFollowing, userId, isBlocking }: ActionsProps) => {
 		startTransition(() => {
 			onBlock(userId)
 				.then((data) => {
-					toast.success(`Blocked the user ${data.blocking.username}`);
+					toast.success(
+						`Sealed in the abyss: ${data.blocking.username} is now blocked.`
+					);
 				})
 				.catch((err) => {
-					toast.error("Something went wrong");
+					toast.error("Embers dim: Error encountered, please try again");
 				});
 		});
 	};
@@ -58,10 +64,12 @@ export const Actions = ({ isFollowing, userId, isBlocking }: ActionsProps) => {
 		startTransition(() => {
 			onUnblock(userId)
 				.then((data) => {
-					toast.success(`unBlocked the user ${data.blocking.username}`);
+					toast.success(
+						`Forgiveness in the flames: ${data.blocking.username} unblocked.`
+					);
 				})
 				.catch((err) => {
-					toast.error("Something went wrong");
+					toast.error("Embers dim: Error encountered, please try again");
 				});
 		});
 	};

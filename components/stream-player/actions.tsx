@@ -22,10 +22,12 @@ const Actions = ({ hostIdentity, isFollowing, isHost }: ActionsProps) => {
 		startTransition(() => {
 			onFollow(hostIdentity)
 				.then((data) =>
-					toast.success(`You are now following ${data.following.username}`)
+					toast.success(
+						`Bonds forged: Following ${data.following.username} in the firelight`
+					)
 				)
 				.catch(() => {
-					toast.error("Something went wrong");
+					toast.error("Embers dim: Error encountered, please try again");
 				});
 		});
 	};
@@ -33,10 +35,12 @@ const Actions = ({ hostIdentity, isFollowing, isHost }: ActionsProps) => {
 		startTransition(() => {
 			onUnFollow(hostIdentity)
 				.then((data) =>
-					toast.success(`You have unFollowed ${data.following.username}`)
+					toast.success(
+						`Bonds severed: No longer journeying with ${data.following.username}`
+					)
 				)
 				.catch(() => {
-					toast.error("Something went wrong");
+					toast.error("Embers dim: Error encountered, please try again");
 				});
 		});
 	};
