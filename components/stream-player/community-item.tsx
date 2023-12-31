@@ -32,11 +32,11 @@ const CommunityItem = ({
 			onBlock(participantIdentity)
 				.then(() => {
 					toast.success(
-						`Sealed in the abyss: ${participantName} is not blocked`
+						`Sealed in the abyss. ${participantName} is not blocked`
 					);
 				})
 				.catch(() => {
-					toast.error("Embers dim: Error encountered, please try again");
+					toast.error("Embers dim. Error encountered, please try again");
 				});
 		});
 	};

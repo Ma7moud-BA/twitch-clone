@@ -36,11 +36,11 @@ const InfoModal = ({ initialThumbnailUrl, initialName }: InfoModalProps) => {
 		startTransition(() => {
 			updateStream({ name: name })
 				.then(() => {
-					toast.success("Ripples in the stream: Updates made successfully.");
+					toast.success("Ripples in the stream. Updates made successfully.");
 					closeRef?.current?.click();
 				})
 				.catch(() => {
-					toast.error("Embers dim: Error encountered, please try again");
+					toast.error("Embers dim. Error encountered, please try again");
 				});
 		});
 	};
@@ -48,12 +48,12 @@ const InfoModal = ({ initialThumbnailUrl, initialName }: InfoModalProps) => {
 		startTransition(() => {
 			updateStream({ thumbnailUrl: null })
 				.then(() => {
-					toast.success("Image extinguished: Thumbnail successfully removed.");
+					toast.success("Image extinguished. Thumbnail successfully removed.");
 					setThumbnailUrl("");
 					closeRef?.current?.click();
 				})
 				.catch(() => {
-					toast.error("Embers dim: Error encountered, please try again");
+					toast.error("Embers dim. Error encountered, please try again");
 				});
 		});
 	};

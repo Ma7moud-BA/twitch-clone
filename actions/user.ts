@@ -18,5 +18,5 @@ export const updateUser = async (values: Partial<User>) => {
 
 	revalidatePath(`/u/${self.username}`);
 	revalidatePath(`/${self.username}`);
-	return updateUser;
+	return updatedUser;
 };

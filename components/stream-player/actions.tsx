@@ -23,11 +23,11 @@ const Actions = ({ hostIdentity, isFollowing, isHost }: ActionsProps) => {
 			onFollow(hostIdentity)
 				.then((data) =>
 					toast.success(
-						`Bonds forged: Following ${data.following.username} in the firelight`
+						`Bonds forged. Following ${data.following.username} in the firelight`
 					)
 				)
 				.catch(() => {
-					toast.error("Embers dim: Error encountered, please try again");
+					toast.error("Embers dim. Error encountered, please try again");
 				});
 		});
 	};
@@ -36,11 +36,11 @@ const Actions = ({ hostIdentity, isFollowing, isHost }: ActionsProps) => {
 			onUnFollow(hostIdentity)
 				.then((data) =>
 					toast.success(
-						`Bonds severed: No longer journeying with ${data.following.username}`
+						`Bonds severed. No longer journeying with ${data.following.username}`
 					)
 				)
 				.catch(() => {
-					toast.error("Embers dim: Error encountered, please try again");
+					toast.error("Embers dim. Error encountered, please try again");
 				});
 		});
 	};

@@ -31,13 +31,13 @@ const BioModal = ({ initialValue }: BioModalProps) => {
 			updateUser({ bio: bio })
 				.then(() => {
 					toast.success(
-						"Darkness revealed: Your bio has been updated at Firelink Stream. "
+						"Darkness revealed. Your bio has been updated at Firelink Stream. "
 					);
 
 					closeRef?.current?.click();
 				})
 				.catch(() => {
-					toast.error("Embers dim: Error encountered, please try again");
+					toast.error("Embers dim. Error encountered, please try again");
 				});
 		});
 	};

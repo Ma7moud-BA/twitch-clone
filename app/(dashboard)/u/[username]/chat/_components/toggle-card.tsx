@@ -18,11 +18,11 @@ const ToggleCard = ({ field, label, value }: ToggleCardProps) => {
 			updateStream({ [field]: !value })
 				.then(() => {
 					toast.success(
-						"Conversations kindled: Your chat settings have been updated."
+						"Conversations kindled. Your chat settings have been updated."
 					);
 				})
 				.catch(() => {
-					toast.error("Embers dim: Error encountered, please try again");
+					toast.error("Embers dim. Error encountered, please try again");
 				});
 		});
 	};

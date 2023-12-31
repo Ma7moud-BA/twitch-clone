@@ -89,3 +89,5 @@ after following the documentation and setting up the files
 api/uploadthing.ts,lib/uploadthing.ts, info-card.ts
 
 add"/api/uploadthing" to the middleware in the publicRoutes
+
+todo: add covenant to that the user can join
