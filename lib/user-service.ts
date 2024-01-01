@@ -6,8 +6,24 @@ export const getUserByUserName = async (username: string) => {
 		where: {
 			username,
 		},
-		include: {
-			stream: true,
+		select: {
+			id: true,
+			username: true,
+			bio: true,
+			imageUrl: true,
+			externalUserId: true,
+			// its dangerous to include the entire stream here so select what is necessary only
+			stream: {
+				select: {
+					id: true,
+					isLive: true,
+					isChatDelayed: true,
+					isChatEnabled: true,
+					isChatFollowersOnly: true,
+					thumbnailUrl: true,
+					name: true,
+				},
+			},
 			// this will return the number of the followedBy for this user
 			_count: {
 				select: {
