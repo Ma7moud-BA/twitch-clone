@@ -102,24 +102,37 @@ export const unblockUser = async (id: string) => {
 	return unblock;
 };
 
-export const isBlocking = async (id: string) => {
+// export const isBlocking = async (id: string) => {
+// 	const self = await getSelf();
+// 	const otherUser = await db.user.findUnique({
+// 		where: { id },
+// 	});
+// 	if (!otherUser) {
+// 		throw new Error("User Not Found");
+// 	}
+// 	if (otherUser.id == self.id) {
+// 		return false;
+// 	}
+// 	const existingBlock = await db.block.findUnique({
+// 		where: {
+// 			blockerId_blockedId: {
+// 				blockerId: self.id,
+// 				blockedId: otherUser.id,
+// 			},
+// 		},
+// 	});
+// 	return !!existingBlock;
+// };
+
+export const getBlockedUsers = async () => {
 	const self = await getSelf();
-	const otherUser = await db.user.findUnique({
-		where: { id },
-	});
-	if (!otherUser) {
-		throw new Error("User Not Found");
-	}
-	if (otherUser.id == self.id) {
-		return false;
-	}
-	const existingBlock = await db.block.findUnique({
+	const blockedUsers = await db.block.findMany({
 		where: {
-			blockerId_blockedId: {
-				blockerId: self.id,
-				blockedId: otherUser.id,
-			},
+			blockerId: self.id,
+		},
+		include: {
+			blocking: true,
 		},
 	});
-	return !!existingBlock;
+	return blockedUsers;
 };

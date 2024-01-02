@@ -1,13 +1,20 @@
 import Thumbnail, { ThumbnailSkeleton } from "@/components/thumbnail";
 import { Skeleton } from "@/components/ui/skeleton";
 import VerifiedMark from "@/components/verified-mark";
-import { Stream, User } from "@prisma/client";
+import { User } from "@prisma/client";
 import { formatDistanceToNow } from "date-fns";
 import Link from "next/link";
 import React from "react";
 
 type ResultCard = {
-	data: Stream & { user: User };
+	data: {
+		id: string;
+		name: string;
+		thumbnailUrl: string | null;
+		isLive: boolean;
+		updatedAt: Date;
+		user: User;
+	};
 };
 const ResultCard = ({ data }: ResultCard) => {
 	return (
@@ -23,7 +30,7 @@ const ResultCard = ({ data }: ResultCard) => {
 				</div>
 				<div className="space-y-1">
 					<div className="flex items-center gap-x-2">
-						<p className="font-bold text-lg cursor-pointer hover:text-green-600">
+						<p className="font-bold text-lg cursor-pointer hover:text-emerald-600">
 							{data.user.username}
 						</p>
 						<VerifiedMark />

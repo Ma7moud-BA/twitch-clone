@@ -32,7 +32,7 @@ const CommunityItem = ({
 			onBlock(participantIdentity)
 				.then(() => {
 					toast.success(
-						`Sealed in the abyss. ${participantName} is not blocked`
+						`Sealed in the abyss. ${participantName} is now blocked`
 					);
 				})
 				.catch(() => {
