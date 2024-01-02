@@ -34,6 +34,17 @@ export const ourFileRouter = {
 
 			return { fileUrl: file.url };
 		}),
+	covenantLogo: f({ image: { maxFileSize: "4MB", maxFileCount: 1 } })
+		.middleware(async (req) => {
+			// This code runs on your server before upload
+			const self = await getSelf();
+			console.log("reqGG", req);
+			if (!self) throw new Error("Unauthorized");
+
+			// Whatever is returned here is accessible in onUploadComplete as `metadata`
+			return { user: self };
+		})
+		.onUploadComplete(() => {}),
 } satisfies FileRouter;
 
 export type OurFileRouter = typeof ourFileRouter;

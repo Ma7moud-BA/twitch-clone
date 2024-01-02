@@ -26,10 +26,15 @@ model User {
   blocking  Block[] @relation("Blocking")
   blockedBy Block[] @relation("BlockedBy")
 
+  covenantId String
+  Covenant   Covenant @relation(fields: [covenantId], references: [id], onDelete: Cascade)
+
   stream Stream?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([covenantId])
 }
 
 model Follow {
@@ -88,4 +93,14 @@ model Stream {
   @@index([userId])
   @@index([ingressId])
   @@fulltext([name])
+}
+
+model Covenant {
+  id   String  @id @default(uuid())
+  name String
+  logo String? @db.Text
+
+  createdAT DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      User[]
 }

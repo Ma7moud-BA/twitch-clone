@@ -2,13 +2,20 @@
 
 import { useUser } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
-import { Fullscreen, KeyRound, MessageSquare, Users } from "lucide-react";
+import {
+	Fullscreen,
+	KeyRound,
+	MessageSquare,
+	Users,
+	Shield,
+} from "lucide-react";
 import NavItem, { NavItemSkeleton } from "./nav-item";
 const Navigation = () => {
 	const pathname = usePathname();
 	const { user } = useUser();
 	const routes = [
 		{ label: "Stream", href: `/u/${user?.username}`, icon: Fullscreen },
+		{ label: "Covenant", href: `/u/${user?.username}/covenant`, icon: Shield },
 		{ label: "Keys", href: `/u/${user?.username}/keys`, icon: KeyRound },
 		{ label: "chat", href: `/u/${user?.username}/chat`, icon: MessageSquare },
 		{ label: "Community", href: `/u/${user?.username}/community`, icon: Users },

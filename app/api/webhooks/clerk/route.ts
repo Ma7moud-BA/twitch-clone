@@ -58,6 +58,9 @@ export async function POST(req: Request) {
 	// payload structure https://clerk.com/docs/integrations/webhooks
 	const eventType = evt.type;
 	if (eventType === "user.created") {
+		const defaultCovenant = await db.covenant.findFirst({
+			where: { name: "Tarnished Order" },
+		});
 		await db.user.create({
 			data: {
 				externalUserId: payload.data.id,
@@ -67,6 +70,11 @@ export async function POST(req: Request) {
 				stream: {
 					create: {
 						name: `${payload.data.username}'s stream`,
+					},
+				},
+				Covenant: {
+					connect: {
+						id: defaultCovenant?.id,
 					},
 				},
 			},

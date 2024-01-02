@@ -2,10 +2,12 @@ import { getBlockedUsers } from "@/lib/block-service";
 import { columns } from "./_components/columns";
 import { DataTable } from "./_components/data-table";
 import { format } from "date-fns";
+import { getSelf } from "@/lib/auth-service";
 
 const CommunityPage = async () => {
 	const blockedUsers = await getBlockedUsers();
-
+	const self = await getSelf();
+	console.log("self", self);
 	const formattedData = blockedUsers.map((block) => ({
 		...block,
 		userId: block.blocking.id,

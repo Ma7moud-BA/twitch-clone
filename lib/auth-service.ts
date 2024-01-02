@@ -13,6 +13,9 @@ export const getSelf = async () => {
 		where: {
 			externalUserId: self?.id,
 		},
+		include: {
+			Covenant: true,
+		},
 	});
 	if (!user) {
 		throw new Error("Not Found");
