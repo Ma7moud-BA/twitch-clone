@@ -16,7 +16,7 @@ export const updateUser = async (values: Partial<User>) => {
 		where: { id: self.id },
 		data: { ...validData },
 		include: {
-			Covenant: true,
+			covenant: true,
 		},
 	});
 

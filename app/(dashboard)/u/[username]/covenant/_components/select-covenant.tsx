@@ -31,7 +31,7 @@ const SelectCovenant = ({ data, joinedCovenant }: SelectCovenantProps) => {
 			updateUser({ covenantId: covenantId })
 				.then((result) => {
 					toast.success(
-						`Welcome to ${result.Covenant.name}, where greatness awaits. Your commitment strengthens the covenant. Forge ahead with valor and purpose!`
+						`Welcome to ${result.covenant.name}, where greatness awaits. Your commitment strengthens the covenant. Forge ahead with valor and purpose!`
 					);
 				})
 				.catch(() => {

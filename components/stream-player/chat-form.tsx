@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import ChatInfo from "./chat-info";
-import { Covenant } from "@prisma/client";
 
 type ChatFormProps = {
 	onSubmit: () => void;

@@ -4,7 +4,6 @@ import { stringToColor } from "@/lib/utils";
 import { ReceivedChatMessage } from "@livekit/components-react";
 import { useUser } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
-import CovenantLogo from "@/app/(dashboard)/u/[username]/covenant/_components/covenant-logo";
 import { Flame, Sword } from "lucide-react";
 type ChatMessageProps = {
 	data: ReceivedChatMessage;

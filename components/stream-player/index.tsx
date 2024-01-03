@@ -29,7 +29,7 @@ type CustomUser = {
 	stream: CustomStream | null;
 	imageUrl: string;
 	covenantId: string;
-	Covenant: Covenant;
+	covenant: Covenant;
 	_count: { followedBy: number };
 };
 

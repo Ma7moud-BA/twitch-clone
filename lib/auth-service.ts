@@ -14,7 +14,7 @@ export const getSelf = async () => {
 			externalUserId: self?.id,
 		},
 		include: {
-			Covenant: true,
+			covenant: true,
 		},
 	});
 	if (!user) {
@@ -34,7 +34,7 @@ export const getCurrentUserFromDB = async () => {
 				externalUserId: self?.id,
 			},
 			include: {
-				Covenant: true,
+				covenant: true,
 			},
 		});
 		if (!user) {

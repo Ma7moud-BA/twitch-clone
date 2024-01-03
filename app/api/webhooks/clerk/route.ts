@@ -72,7 +72,7 @@ export async function POST(req: Request) {
 						name: `${payload.data.username}'s stream`,
 					},
 				},
-				Covenant: {
+				covenant: {
 					connect: {
 						id: defaultCovenant?.id,
 					},
