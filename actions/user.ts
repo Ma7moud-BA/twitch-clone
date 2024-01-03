@@ -10,10 +10,14 @@ export const updateUser = async (values: Partial<User>) => {
 	const validData = {
 		// to prevent the change by mistake of the username because that action is handled by clerk
 		bio: values.bio,
+		covenantId: values.covenantId,
 	};
 	const updatedUser = await db.user.update({
 		where: { id: self.id },
 		data: { ...validData },
+		include: {
+			Covenant: true,
+		},
 	});
 
 	revalidatePath(`/u/${self.username}`);

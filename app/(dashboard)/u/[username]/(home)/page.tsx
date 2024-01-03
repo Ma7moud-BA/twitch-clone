@@ -12,7 +12,8 @@ type CreatorPageProps = {
 const CreatorPage = async ({ params }: CreatorPageProps) => {
 	const externalUser = await currentUser();
 	const user = await getUserByUserName(params.username);
-
+	const self = await getSelf();
+	console.log(self);
 	if (!user || user.externalUserId !== externalUser?.id || !user.stream) {
 		throw new Error("UnAuthorized");
 	}

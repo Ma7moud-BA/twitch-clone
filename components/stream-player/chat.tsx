@@ -13,6 +13,9 @@ import ChatHeader, { ChatHeaderSkeleton } from "./chat-header";
 import ChatForm, { ChatFormSkeleton } from "./chat-form";
 import ChatList, { ChatListSkeleton } from "./chat-list";
 import ChatCommunity from "./chat-community";
+import { Covenant, User } from "@prisma/client";
+import { Shield } from "lucide-react";
+
 type ChatProps = {
 	viewerName: string;
 	hostName: string;
@@ -30,6 +33,7 @@ const Chat = ({
 	isChatEnabled,
 	isChatFollowersOnly,
 	isFollowing,
+
 	viewerName,
 }: ChatProps) => {
 	const matches = useMediaQuery("(max-width:1024px)");

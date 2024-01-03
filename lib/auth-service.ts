@@ -24,6 +24,28 @@ export const getSelf = async () => {
 	return user;
 };
 
+// the same function as getSelf but this one doesn't throw error on guests
+export const getCurrentUserFromDB = async () => {
+	const self = await currentUser();
+	let user;
+	if (self) {
+		user = await db.user.findUnique({
+			where: {
+				externalUserId: self?.id,
+			},
+			include: {
+				Covenant: true,
+			},
+		});
+		if (!user) {
+			throw new Error("Not Found");
+		}
+	} else {
+		user = null;
+	}
+
+	return user;
+};
 // to load the creator dashboard using the username
 // another way of doing it is just to user /dashboard, but using the username allow modularity in the future, like you can enable some moderator which can modify specific username and more
 export const getSelfByUsername = async (username: string) => {

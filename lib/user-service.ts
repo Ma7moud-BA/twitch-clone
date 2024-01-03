@@ -12,6 +12,8 @@ export const getUserByUserName = async (username: string) => {
 			bio: true,
 			imageUrl: true,
 			externalUserId: true,
+			Covenant: true,
+			covenantId: true,
 			// its dangerous to include the entire stream here so select what is necessary only
 			stream: {
 				select: {

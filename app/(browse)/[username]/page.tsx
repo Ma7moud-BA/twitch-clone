@@ -1,7 +1,6 @@
 import { isFollowingUser } from "@/lib/follow-service";
 import { getUserByUserName } from "@/lib/user-service";
 import { notFound } from "next/navigation";
-import { Actions } from "./_components/actions";
 import { isBlockedBy } from "@/lib/block-service";
 import StreamPlayer from "@/components/stream-player";
 
@@ -23,6 +22,7 @@ const UserPage = async ({ params }: UserPageProps) => {
 	if (isBlocked) {
 		notFound();
 	}
+
 	return (
 		<StreamPlayer isFollowing={isFollowing} stream={user.stream} user={user} />
 	);

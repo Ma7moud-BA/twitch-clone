@@ -2,6 +2,7 @@
 import { ReceivedChatMessage } from "@livekit/components-react";
 import ChatMessage from "./chat-message";
 import { Skeleton } from "../ui/skeleton";
+import { Covenant } from "@prisma/client";
 
 type ChatListProps = {
 	messages: ReceivedChatMessage[];

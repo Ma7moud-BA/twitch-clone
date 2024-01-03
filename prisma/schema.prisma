@@ -27,7 +27,7 @@ model User {
   blockedBy Block[] @relation("BlockedBy")
 
   covenantId String
-  Covenant   Covenant @relation(fields: [covenantId], references: [id], onDelete: Cascade)
+  covenant   Covenant @relation(fields: [covenantId], references: [id], onDelete: Cascade)
 
   stream Stream?
 

@@ -1,6 +1,6 @@
 "use client";
 import { useViewerToken } from "@/hooks/use-viewer-token";
-import { Stream, User } from "@prisma/client";
+import { Covenant, Stream, User } from "@prisma/client";
 import { useChatSidebar } from "@/store/use-chat-sidebar";
 import { cn } from "@/lib/utils";
 import { LiveKitRoom } from "@livekit/components-react";
@@ -11,6 +11,7 @@ import ChatToggle from "./chat-toggle";
 import Header, { HeaderSkeleton } from "./header";
 import InfoCard from "./info-card";
 import AboutCard from "./about-card";
+import { jwtDecode } from "jwt-decode";
 
 type CustomStream = {
 	id: string;
@@ -27,6 +28,8 @@ type CustomUser = {
 	bio: string | null;
 	stream: CustomStream | null;
 	imageUrl: string;
+	covenantId: string;
+	Covenant: Covenant;
 	_count: { followedBy: number };
 };
 

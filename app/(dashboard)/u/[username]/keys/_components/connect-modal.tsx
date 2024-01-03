@@ -39,7 +39,8 @@ const ConnectModal = () => {
 					toast.success("Gateway forged. Ingress successfully created.");
 					closeRef?.current?.click();
 				})
-				.catch(() => {
+				.catch((err) => {
+					console.log("error", err.message);
 					toast.error("Embers dim. Error encountered, please try again");
 				});
 		});
@@ -80,7 +81,6 @@ const ConnectModal = () => {
 						<Button variant="ghost">Cancel</Button>
 					</DialogClose>
 					<Button disabled={isPending} onClick={onSubmit} variant="primary">
-						{" "}
 						Generate
 					</Button>
 				</div>
