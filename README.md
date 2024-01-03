@@ -91,3 +91,7 @@ api/uploadthing.ts,lib/uploadthing.ts, info-card.ts
 add"/api/uploadthing" to the middleware in the publicRoutes
 
 todo: add covenant to that the user can join
+
+after deployment, we don't need the use of ngrok anymore so we add a new endpoint in the livekit webhook from the livekit dashboard->setting->webhooks
+and put the one from vercel followed by /api/webhooks/livekit
+and the same thing goes for clerk webhook, edit the endpoint to take the new url from vercel.
